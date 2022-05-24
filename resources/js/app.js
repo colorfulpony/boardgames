@@ -1,5 +1,7 @@
-import Vue from 'vue';
-import ProductCategoryComponent from './components/ProductCategoryComponent';
+import Vue from 'vue'
+import store from './store'
+import router from './router'
+import Index from './components/Index'
 
 require('./bootstrap');
 
@@ -7,7 +9,9 @@ const app = new Vue ({
     el: '#app',
 
     components: {
-        ProductCategoryComponent,
-    }
+        Index
+    },
 
+    router,
+    store
 })

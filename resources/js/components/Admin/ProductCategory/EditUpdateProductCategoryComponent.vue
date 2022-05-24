@@ -1,5 +1,6 @@
 <template>
     <div class="p-5">
+        <h1>Product Categories</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -13,8 +14,8 @@
             </thead>
             <tbody v-for="product_category in product_categories" :key="product_category.id">
                 <template>
-                    <show-product-category-component :product_category="product_category" :ref="`showProductCategoryComponent_${product_category.id}`"></show-product-category-component>
                     <edit-product-category-component :product_category="product_category" :ref="`editProductCategoryComponent_${product_category.id}`"></edit-product-category-component>
+                    <update-product-category-component :product_category="product_category" :ref="`updateProductCategoryComponent_${product_category.id}`"></update-product-category-component>
                 </template>
             </tbody>
         </table>
@@ -23,14 +24,14 @@
 
 <script>
 import EditProductCategoryComponent from "./EditProductCategoryComponent.vue"
-import ShowProductCategoryComponent from "./ShowProductCategoryComponent.vue"
+import UpdateProductCategoryComponent from "./UpdateProductCategoryComponent.vue"
 import axios from "axios"
 export default {
-    name: "IndexProductCategoryComponent",
+    name: "EditUpdateProductCategoryComponent",
 
     components: {
         EditProductCategoryComponent,
-        ShowProductCategoryComponent
+        UpdateProductCategoryComponent
     },
 
     data() {

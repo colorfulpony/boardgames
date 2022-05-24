@@ -1,14 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\Main\IndexController as AdminMainIndexController;
 use App\Http\Controllers\Admin\ProductCategory\IndexController as AdminProductCategoryIndexController;
 use App\Http\Controllers\Admin\ProductCategory\UpdateController as AdminProductCategoryUpdateController;
-use App\Http\Controllers\Admin\ProductCategory\CreateController as AdminProductCategoryCreateController;
+use App\Http\Controllers\Admin\ProductCategory\EditController as AdminProductCategoryEditController;
 use App\Http\Controllers\Admin\ProductCategory\StoreController as AdminProductCategoryStoreController;
 use App\Http\Controllers\Admin\ProductCategory\DeleteController as AdminProductCategoryDeleteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\IndexController as MainIndexController;
-use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,11 +41,12 @@ Route::prefix('admin')->name('admin')->group(function () {
     Route::prefix('product_category')->name('.product_categories')->group(function() {
         Route::patch('/{productCategory}', AdminProductCategoryUpdateController::class)->name('update');
         Route::get('/', AdminProductCategoryIndexController::class)->name('index');
+        Route::get('/{productCategory}', AdminProductCategoryEditController::class)->name('edit');
         Route::post('/', AdminProductCategoryStoreController::class)->name('store');
         Route::delete('/{productCategory}', AdminProductCategoryDeleteController::class)->name('delete');
     });
 });
 
-Route::get('/', MainIndexController::class);
+// Route::get('/{page}', MainIndexController::class)->where('page', '.*');
 
-Route::get('home', [HomeController::class, 'index']);
+// Route::get('home', [HomeController::class, 'index']);

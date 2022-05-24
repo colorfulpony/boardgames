@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Main\IndexController as AdminMainIndexController;
 use App\Http\Controllers\Admin\ProductCategory\IndexController as AdminProductCategoryIndexController;
 use App\Http\Controllers\Admin\ProductCategory\CreateController as AdminProductCategoryCreateController ;
+use App\Http\Controllers\Admin\ProductCategory\EditController;
 use App\Http\Controllers\Admin\ProductCategory\StoreController as AdminProductCategoryStoreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\IndexController as MainIndexController;
@@ -24,9 +25,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/', MainIndexController::class);
+Route::get('/{page}', MainIndexController::class)->where('page', '.*');
 
-Route::get('home', [HomeController::class, 'index']);
+// Route::get('/home', AdminProductCategoryIndexController::class);
+
+
 
 
 // Route::middleware(VerifyCsrfToken::class)->prefix('admin')->group(function() {

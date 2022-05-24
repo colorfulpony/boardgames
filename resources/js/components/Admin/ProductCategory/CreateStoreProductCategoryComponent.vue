@@ -1,6 +1,6 @@
 <template>
     <div class="p-5">
-        <h1>Product Categories</h1>
+        <h1>Create Product Category</h1>
         <div class="w-25">
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Slug</label>
@@ -26,7 +26,7 @@
 <script>
 import axios from "axios"
 export default {
-    name: "ShoweProductCategoryComponent",
+    name: "CreateStoreProductCategoryComponent",
 
     components: {
 
@@ -47,7 +47,7 @@ export default {
                 this.slug = null,
                 this.title = null,
                 this.description = null
-                this.$parent.$refs.indexProductCategoryComponent.getProductCategories()
+                this.$parent.$refs.editUpdateProductCategoryComponent.getProductCategories()
             })
         }
     }

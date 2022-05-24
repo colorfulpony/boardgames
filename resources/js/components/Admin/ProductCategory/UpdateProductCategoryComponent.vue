@@ -11,7 +11,7 @@
 <script>
 import axios from "axios"
 export default {
-    name: "EditProductCategoryComponent",
+    name: "UpdateProductCategoryComponent",
 
     components: {
 

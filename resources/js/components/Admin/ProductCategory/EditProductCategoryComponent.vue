@@ -12,7 +12,7 @@
 <script>
 import axios from "axios"
 export default {
-    name: "ShowProductCategoryComponent",
+    name: "EditProductCategoryComponent",
 
     components: {
 
